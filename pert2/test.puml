@@ -1,0 +1,23 @@
+@startuml test
+
+actor Mahasiswa as Mhs 
+actor Dosen as dosen 
+
+
+package Classroom {
+    usecase "Datang Ke Kelas" as U1
+    usecase "Memilih Matkul" as U2
+    usecase "Dapat Jadwal" as U3
+    usecase "ruang kelas" as U4
+    usecase "Mengajar" as U5
+    
+
+}
+
+Mhs -> U1
+Mhs --> U2
+U2 ..> U3
+U2 ..> U4
+dosen --> U5
+
+@enduml
