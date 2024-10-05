@@ -1,23 +1,30 @@
 @startuml test
 
-actor Mahasiswa as Mhs 
-actor Dosen as dosen 
+Actor Mahasiswa as Mhs
+Actor Dosen as Dsn
 
-
-package Classroom {
-    usecase "Datang Ke Kelas" as U1
-    usecase "Memilih Matkul" as U2
-    usecase "Dapat Jadwal" as U3
-    usecase "ruang kelas" as U4
-    usecase "Mengajar" as U5
-    
+package Kelas {
+    usecase "Datang ke Kelas" as U1
+    usecase "Registrasi" as U2
+    usecase "Pilih matkul" as U3
+    usecase "Dapat jadwal" as U4
+    usecase "Dapat ruangan" as U5
+    usecase "Lihat Jadwal\nKelas" as U6
+    usecase "Terima mengajar" as U7
+    usecase "Tolak mengajar" as U8
+    usecase "Mengajar" as U9
 
 }
 
-Mhs -> U1
-Mhs --> U2
-U2 ..> U3
-U2 ..> U4
-dosen --> U5
+Mhs -> U2
+Mhs --> U1
+U2 --> U3
+U3 .> U4: Include
+U3 ..> U5: Include
+
+Dsn --> U6
+U6 ..> U7: Extend
+U6 .> U8: Extend
+U7 -> U9
 
 @enduml
